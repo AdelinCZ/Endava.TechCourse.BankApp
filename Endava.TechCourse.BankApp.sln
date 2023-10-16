@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endava.TechCourse.BankApp.Server", "Server\Endava.TechCourse.BankApp.Server.csproj", "{E7C74B91-6390-4CC5-BF63-13D9823C0B50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endava.TechCourse.BankApp.Client", "Client\Endava.TechCourse.BankApp.Client.csproj", "{3A6AAA82-092F-44C8-86F7-69F79E64DAF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endava.TechCourse.BankApp.Shared", "Shared\Endava.TechCourse.BankApp.Shared.csproj", "{5E91BEC2-1971-4343-A1E9-55C0EBAE04F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7C74B91-6390-4CC5-BF63-13D9823C0B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C74B91-6390-4CC5-BF63-13D9823C0B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C74B91-6390-4CC5-BF63-13D9823C0B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C74B91-6390-4CC5-BF63-13D9823C0B50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A6AAA82-092F-44C8-86F7-69F79E64DAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A6AAA82-092F-44C8-86F7-69F79E64DAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A6AAA82-092F-44C8-86F7-69F79E64DAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A6AAA82-092F-44C8-86F7-69F79E64DAF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E91BEC2-1971-4343-A1E9-55C0EBAE04F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E91BEC2-1971-4343-A1E9-55C0EBAE04F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E91BEC2-1971-4343-A1E9-55C0EBAE04F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E91BEC2-1971-4343-A1E9-55C0EBAE04F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E43B5578-EB9D-49A5-8BEE-B55F5F83A069}
+	EndGlobalSection
+EndGlobal
