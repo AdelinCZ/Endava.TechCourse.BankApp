@@ -7,3 +7,59 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+<!-- Navigation Sidebar -->
+<MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 200px;">
+    <MudGrid Justify="Justify.Center">
+        <MudItem xs="12" sm="8">
+            <MudPaper Class="pa-4">
+                <MudText Class="d-flex justify-center" Typo="Typo.h5">Autentificare</MudText>
+                <MudForm>
+                    <MudTextField T="string" Label="Email" />
+                    <MudTextField T="string" Label="Password" InputType="InputType.Password" />
+                </MudForm>
+            </MudPaper>
+
+            <MudItem Class="pa-4 mt-4 d-flex justify-center">
+                <MudButton Href="/" Variant="Variant.Filled" Color="Color.Tertiary" DisableElevation="true">Autentificare</MudButton>
+                <MudButton Href="/" Variant="Variant.Filled" Color="Color.Secondary" DisableElevation="true" Class="mx-2">Inregistrare</MudButton>
+                <MudButton Href="/" Variant="Variant.Filled" Color="Color.Secondary" DisableElevation="true">Pagina principala</MudButton>
+            </MudItem>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+<MudDropContainer T="DropItem" Items="_items" ItemsSelector="@((item,dropzone) => item.Identifier == dropzone)" ItemDropped="ItemUpdated" Class="d-flex flex-wrap flex-grow-1">
+    <ChildContent>
+        <MudDropZone T="DropItem" Identifier="Drop Zone 1" Class="rounded mud-background-gray pa-6 ma-8 flex-grow-1">
+            <MudText Typo="Typo.h6" Class="mb-4">Drop Zone 1</MudText>
+        </MudDropZone>
+        <MudDropZone T="DropItem" Identifier="Drop Zone 2" Class="rounded mud-background-gray pa-6 ma-8 flex-grow-1">
+            <MudText Typo="Typo.h6" Class="mb-4">Drop Zone 2</MudText>
+        </MudDropZone>
+    </ChildContent>
+    <ItemRenderer>
+        <MudPaper Elevation="25" Class="pa-4 my-4">@context.Name</MudPaper>
+    </ItemRenderer>
+</MudDropContainer>
+
+
+
+@code {
+    private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
+    {
+        dropItem.Item.Identifier = dropItem.DropzoneIdentifier;
+    }
+
+    private List<DropItem> _items = new()
+    {
+        new DropItem(){ Name = "Drag me!", Identifier = "Drop Zone 1" },
+        new DropItem(){ Name = "Or me!", Identifier = "Drop Zone 2" },
+        new DropItem(){ Name = "Just Mud", Identifier = "Drop Zone 1" },
+    };
+
+    public class DropItem
+    {
+        public string Name { get; init; }
+        public string Identifier { get; set; }
+    }
+}

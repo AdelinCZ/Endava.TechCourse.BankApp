@@ -4,21 +4,50 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-<MudLayout>
+ <MudLayout>
+    <!-- App Bar -->
     <MudAppBar Elevation="0" Color="Color.Primary">
         <h2>Endava Tech Course Bank App | </h2>
         <MudButton Href="/" Variant="Variant.Text" Style=@($"color:{Theme.PaletteDark.White}") Class="ml-4">Pagina Principala</MudButton>
+        <MudButton Variant="Variant.Filled" Class="ml-4" Color="Color.Primary">Contacte</MudButton>
+        <MudButton Variant="Variant.Filled" Class="ml-4" Color="Color.Secondary">xxx</MudButton>
     </MudAppBar>
 
+    <!-- Main Content -->
     <MudMainContent>
+        @* <!-- Navigation Sidebar -->
         <MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="my-8">
-            @Body
-            <MudScrollToTop>
+        <MudPaper Width="250px" Class="py-3" Elevation="0">
+            <MudNavMenu>
+                <MudText Typo="Typo.h6" Class="px-4">Bank App</MudText>
+                
+                <MudDivider Class="my-2" />
+                <MudNavLink Href="/">Dashboard</MudNavLink>
+                <MudNavLink Href="/">CashByCode</MudNavLink>
+                <MudNavGroup Title="Settings" Expanded="true">
+                    <MudNavLink Href="/">Password</MudNavLink>
+                    <MudNavLink Href="/">Information</MudNavLink>
+                </MudNavGroup>
+               
+            </MudNavMenu>
+        </MudPaper>
+        </MudContainer> *@
+
+         <!-- Main Content Container -->
+         <MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="my-4"> 
+             @Body 
+
+            <!-- Scroll to Top Button -->
+             <MudScrollToTop>
                 <MudFab Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.ArrowCircleUp" />
-            </MudScrollToTop>
-        </MudContainer>
+            </MudScrollToTop> 
+        </MudContainer>  
     </MudMainContent>
-</MudLayout>
+</MudLayout> 
+
+
+
+
 
 
 @code {
