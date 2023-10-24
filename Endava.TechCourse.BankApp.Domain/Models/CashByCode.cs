@@ -2,7 +2,7 @@
 
 namespace Endava.TechCourse.BankApp.Domain.Models
 {
-    internal class CashByCode : BaseEntity
+    public class CashByCode : BaseEntity
     {
         public string Code { get; set; }
         public decimal Amount { get; set; }
