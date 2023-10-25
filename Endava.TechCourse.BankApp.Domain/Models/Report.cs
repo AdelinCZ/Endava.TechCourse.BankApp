@@ -2,7 +2,7 @@
 
 namespace Endava.TechCourse.BankApp.Domain.Models
 {
-    internal class Report : BaseEntity
+    public class Report : BaseEntity
     {
         public DateTime ReportDate { get; set; }
         public decimal BeginningBalance { get; set; }
