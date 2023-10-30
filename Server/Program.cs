@@ -1,5 +1,4 @@
 using Endava.TechCourse.BankApp.Infrastructure;
-
 namespace Endava.TechCourse.BankApp
 
 {
