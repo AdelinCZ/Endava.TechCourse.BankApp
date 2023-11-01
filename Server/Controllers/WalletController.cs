@@ -14,6 +14,8 @@ namespace Endava.TechCourse.BankApp.Server.Controllers
 
         public WalletController(ApplicationDbContext dbContext)
         {
+            ArgumentNullException.ThrowIfNull(dbContext);
+
             _context = dbContext;
         }
 
@@ -39,9 +41,26 @@ namespace Endava.TechCourse.BankApp.Server.Controllers
 
         [HttpGet]
         [Route("getwallets")]
-        public async Task<List<Wallet>> GetWallets()
+        public async Task<List<WalletDto>> GetWallets()
         {
-            return await _context.Wallets.ToListAsync();
+            var wallets = await _context.Wallets.Include(x => x.Currency).ToListAsync();
+
+            var dtos = new List<WalletDto>();
+
+            foreach (var wallet in wallets)
+            {
+                var dto = new WalletDto()
+                {
+                    Id = wallet.Id.ToString(),
+                    Currency = wallet.Currency.Name,
+                    Type = wallet.Type,
+                    Amount = wallet.Amount,
+                };
+
+                dtos.Add(dto);
+            }
+
+            return dtos;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿<h3>Wallet</h3>
 @page "/wallet"
-@using MudBlazor
 @inject HttpClient HttpClient
 
 <PageTitle>All wallets</PageTitle>
@@ -25,10 +24,10 @@
 </MudTable>
 
 @code {
-    private List<Endava.TechCourse.BankApp.Domain.Models.Wallet> wallets;
+    List<WalletDto> wallets; 
 
     protected override async Task OnInitializedAsync()
     {
-        wallets = await HttpClient.GetFromJsonAsync<List<Endava.TechCourse.BankApp.Domain.Models.Wallet>>($"http://localhost:5232/api/wallet/getwallets");
+        wallets = await HttpClient.GetFromJsonAsync<List<WalletDto>>($"api/wallet/getwallets");
     }
 }
