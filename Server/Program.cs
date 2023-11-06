@@ -1,4 +1,6 @@
+using Endava.TechCourse.BankApp.Application.Queries.GetWallets;
 using Endava.TechCourse.BankApp.Infrastructure;
+
 namespace Endava.TechCourse.BankApp
 
 {
@@ -8,6 +10,12 @@ namespace Endava.TechCourse.BankApp
         {
             var builder = WebApplication.CreateBuilder(args);
             var configuration = builder.Configuration;
+
+            builder.Services.AddMediatR(config =>
+            {
+                config.RegisterServicesFromAssemblies(typeof(Program).Assembly);
+                config.RegisterServicesFromAssemblies(typeof(GetWalletsQuery).Assembly);
+            });
 
             // Add services to the container.
             builder.Services.AddInfrastructure(configuration);
