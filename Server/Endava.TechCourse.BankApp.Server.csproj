@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13">
       <PrivateAssets>all</PrivateAssets>
@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Client\Endava.TechCourse.BankApp.Client.csproj" />
+    <ProjectReference Include="..\Endava.TechCourse.BankApp.Application\Endava.TechCourse.BankApp.Application.csproj" />
     <ProjectReference Include="..\Endava.TechCourse.BankApp.Infrastructure\Endava.TechCourse.BankApp.Infrastructure.csproj" />
     <ProjectReference Include="..\Shared\Endava.TechCourse.BankApp.Shared.csproj" />
   </ItemGroup>
