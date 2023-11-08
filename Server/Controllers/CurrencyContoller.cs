@@ -1,4 +1,5 @@
 ﻿using Endava.TechCourse.BankApp.Application.Commands.AddCurrency;
+using Endava.TechCourse.BankApp.Application.Commands.DeleteCurrency;
 using Endava.TechCourse.BankApp.Application.Queries.GetCurrencies;
 using Endava.TechCourse.BankApp.Shared;
 using MediatR;
@@ -55,6 +56,23 @@ namespace Endava.TechCourse.BankApp.Server.Controllers
                 return Ok();
             }
             else return BadRequest(result.Error);
+        }
+
+        [HttpPost]
+        [Route("delete")]
+        public async Task<IActionResult> DeleteCurrency([FromBody] string id)
+        {
+            var command = new DeleteCurrencyCommand()
+            {
+                CurrencyId = id
+            };
+
+            var result = await this.mediator.Send(command);
+            if (result.IsSuccessful)
+            {
+                return Ok();
+            }
+            else { return BadRequest(result.Error); }
         }
     }
 }

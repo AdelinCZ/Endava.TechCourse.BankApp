@@ -1,4 +1,5 @@
-﻿using Endava.TechCourse.BankApp.Application.Queries.GetWallets;
+﻿using Endava.TechCourse.BankApp.Application.Commands.DeleteWallet;
+using Endava.TechCourse.BankApp.Application.Queries.GetWallets;
 using Endava.TechCourse.BankApp.Domain.Models;
 using Endava.TechCourse.BankApp.Infrastructure.Persistence;
 using Endava.TechCourse.BankApp.Shared;
@@ -41,6 +42,23 @@ namespace Endava.TechCourse.BankApp.Server.Controllers
             context.Wallets.Add(wallet);
             context.SaveChanges();
             return Ok();
+        }
+
+        [HttpPost]
+        [Route("deletewallet")]
+        public async Task<IActionResult> DeleteWallet([FromBody] string id)
+        {
+            var command = new DeleteWalletCommand()
+            {
+                WalletId = id
+            };
+
+            var result = await this.mediator.Send(command);
+            if (result.IsSuccessful)
+            {
+                return Ok();
+            }
+            else { return BadRequest(result.Error); }
         }
 
         [HttpGet]
